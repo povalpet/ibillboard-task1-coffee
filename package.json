@@ -4,6 +4,7 @@
   "description": "Sample application written in CoffeeScript",
   "main": "app.coffee",
   "scripts": {
+    "start": "supervisor -e node,js,coffee --ignore logs dev.coffee",
     "test": "node test.coffee"
   },
   "author": "Petr Povala",
