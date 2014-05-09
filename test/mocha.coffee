@@ -24,7 +24,7 @@ exports.run = (callback) ->
   testFiles = getTestFiles()
 
   command = "node node_modules/mocha/bin/mocha
-    --compilers coffee:coffee-script
+    --compilers coffee:coffee-script/register
     --ui tdd
     --globals logger
     --colors
