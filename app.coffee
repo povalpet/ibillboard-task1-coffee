@@ -1,6 +1,8 @@
 express = require 'express'
 http = require 'http'
 servicesFactory = require './services'
+modelFactory = require './model'
+routes = require './routes'
 
 
 app = express()
@@ -8,7 +10,10 @@ app.set 'mode',process.env.NODE_ENV || 'development'
 app.set 'port',process.env.PORT || 3000
 
 services = servicesFactory.create()
+model = modelFactory services
 global.logger = services.logger
+
+routes.register app,model
 
 onServerError = (err) ->
   if 'EADDRINUSE' is err.errno
